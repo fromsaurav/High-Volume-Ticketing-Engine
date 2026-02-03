@@ -99,3 +99,41 @@ Payment OK    Cancel/Timeout
 │(final)  │  │(lock deleted)│
 └─────────┘  └─────────────┘
 ```
+
+---
+
+## File Reference
+
+### Backend (`backend/`)
+
+| File | Purpose |
+|------|---------|
+| `config/settings.py` | Django configuration (database, CORS, installed apps) |
+| `config/urls.py` | Root URL routing - includes booking app URLs |
+| `booking/models.py` | Database models: Venue, Hall, Seat, Movie, Show, Booking |
+| `booking/views.py` | API endpoints with pessimistic locking logic |
+| `booking/serializers.py` | Request validation and JSON response formatting |
+| `booking/urls.py` | API route definitions (`/api/book-seat/`, etc.) |
+| `booking/admin.py` | Django admin panel configuration |
+| `booking/migrations/0001_initial.py` | SQL schema creation (shows schema evolution) |
+| `manage.py` | Django CLI entry point |
+
+### Frontend (`frontend/`)
+
+| File | Purpose |
+|------|---------|
+| `src/App.jsx` | Main React component - seat grid, booking flow, payment modal |
+| `src/App.css` | Complete styling - seat colors, animations, responsive layout |
+| `src/main.jsx` | React entry point |
+| `index.html` | HTML template |
+| `vite.config.js` | Vite build configuration |
+
+### Root Files
+
+| File | Purpose |
+|------|---------|
+| `README.md` | Setup instructions and project overview |
+| `DESIGN.md` | This file - ER diagram, decision log |
+| `System_Architecture.md` | Concurrency strategy, API flow diagrams |
+| `CONCURRENCY.md` | Concurrency test results and instructions |
+| `test_concurrency.py` | Script to test 5 simultaneous booking requests |

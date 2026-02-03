@@ -298,7 +298,7 @@ function App() {
           <option value="">-- Select a show --</option>
           {shows.map(show => (
             <option key={show.id} value={show.id}>
-              {show.movie_title} - {show.hall_name} - ₹{show.price}
+              {show.movie_title} - {new Date(show.start_time).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })} - ₹{show.price}
             </option>
           ))}
         </select>
